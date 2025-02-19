@@ -25,23 +25,19 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public String createAccount(String username, String password, String email) {
+    public String signup(User userSigningIn) {
 
         var consoleOutput = "\nAccount";
 
-        if (userRepository.existsByUserName(username)) {
-            consoleOutput += " username already exist";
-            System.out.println(consoleOutput);
-            return "Username already exist";
-        }
+        User user = userSigningIn;
 
-        if (userRepository.existsByUserEmail(email)) {
+        if (userRepository.existsByUserEmail(user.getUserEmail())) {
             consoleOutput += " email already taken";
             System.out.println(consoleOutput);
             return "Email already taken";
         }
 
-        User user = User.createAccount(username, password, email);
+        // Creating and saving the new user
         userRepository.save(user);
 
         consoleOutput += " created successfully";

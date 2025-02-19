@@ -37,15 +37,14 @@ public class User {
     protected User() {
     }
 
-    protected User(String username, String password, String email) {
-        this.userName = username;
-        this.userPassword = password;
-        this.userEmail = email;
+    protected User(String userEmail, String userPassword) {
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
     }
 
     // use for creating account
-    public static User createAccount(String username, String password, String email) {
-        User user = new User(username, password, email);
+    public static User createAccount(String userEmail, String userPassword) {
+        User user = new User(userEmail, userPassword);
         return user;
     }
 
