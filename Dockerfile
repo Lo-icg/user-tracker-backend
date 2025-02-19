@@ -1,11 +1,30 @@
 # Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk-slim AS build
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the built JAR file into the container
-COPY target/*.jar app.jar
+# Copy Maven wrapper and pom.xml
+COPY mvnw .
+COPY .mvn .mvn
+COPY pom.xml .
+
+# Download dependencies
+RUN ./mvnw dependency:go-offline
+
+# Copy the actual project source
+COPY src src
+
+# Build the application
+RUN ./mvnw clean package
+
+# Second stage: run the built application
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copy the built JAR from the previous stage
+COPY --from=build /app/target/*.jar app.jar
 
 # Expose the port used by Spring Boot
 EXPOSE 8080
