@@ -22,6 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @CrossOrigin(origins = "https://lo-icg.github.io/user-tracker-frontend/") // Allow only this frontend
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
 
@@ -34,6 +35,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin(origins = "https://lo-icg.github.io/user-tracker-frontend/") // Allow only this frontend
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody User user) {
         String response = userService.signupAttempt(user);
