@@ -15,23 +15,26 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // what
     private Long id;
 
-    @Column(name = "username")
-    private String userName;
+    // @Column(name = "username")
+    // private String userName;
 
-    @Column(name = "userpassword")
-    private String userPassword;
+    // @Column(name = "userpassword")
+    // private String userPassword;
 
-    @Column(name = "contactnumber")
-    private int userContactNumber;
-
-    @Column(name = "email")
+    @Column(name = "Email")
     private String userEmail;
 
-    @Column(name = "latitude")
-    private double userLatitude;
+    @Column(name = "Password")
+    private String userPassword;
 
-    @Column(name = "longitude")
-    private double userLongitude;
+    @Column(name = "ContactNumber")
+    private String userContactNumber;
+
+    // @Column(name = "latitude")
+    // private double userLatitude;
+
+    // @Column(name = "longitude")
+    // private double userLongitude;
 
     // Required by JPA default (no-argument) constructor
     protected User() {
@@ -58,13 +61,13 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    // public String getUserName() {
+    // return userName;
+    // }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    // public void setUserName(String userName) {
+    // this.userName = userName;
+    // }
 
     public String getUserPassword() {
         return userPassword;
@@ -74,11 +77,11 @@ public class User {
         this.userPassword = userPassword;
     }
 
-    public int getUserContactNumber() {
+    public String getUserContactNumber() {
         return userContactNumber;
     }
 
-    public void setUserContactNumber(int userContactNumber) {
+    public void setUserContactNumber(String userContactNumber) {
         this.userContactNumber = userContactNumber;
     }
 
@@ -90,20 +93,20 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public double getUserLatitude() {
-        return userLatitude;
-    }
+    // public double getUserLatitude() {
+    // return userLatitude;
+    // }
 
-    public void setUserLatitude(double userLatitude) {
-        this.userLatitude = userLatitude;
-    }
+    // public void setUserLatitude(double userLatitude) {
+    // this.userLatitude = userLatitude;
+    // }
 
-    public double getUserLongitude() {
-        return userLongitude;
-    }
+    // public double getUserLongitude() {
+    // return userLongitude;
+    // }
 
-    public void setUserLongitude(double userLongitude) {
-        this.userLongitude = userLongitude;
-    }
+    // public void setUserLongitude(double userLongitude) {
+    // this.userLongitude = userLongitude;
+    // }
 
 }

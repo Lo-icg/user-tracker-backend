@@ -8,7 +8,7 @@ import com.tracker.rest.api.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     // -----------
-    boolean existsByUserName(String userName);
+    // boolean existsByUserName(String userName);
 
     boolean existsByUserEmail(String userEmail);
 
@@ -16,5 +16,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // Optional<User> findByUserEmail(String userEmail);
 
-    void deleteByUserName(String userName);
+    // void deleteByUserName(String userName);
 }
