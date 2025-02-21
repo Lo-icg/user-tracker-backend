@@ -2,7 +2,7 @@ package com.tracker.rest.api.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import com.tracker.rest.api.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:3000") // Allow frontend requests
+// @CrossOrigin(origins = "http://localhost:3000") // Allow frontend requests
 public class UserController {
 
     private final UserService userService;
@@ -22,7 +22,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @CrossOrigin(origins = "https://lo-icg.github.io/user-tracker-frontend/") // Allow only this frontend
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
 
@@ -35,7 +34,6 @@ public class UserController {
         }
     }
 
-    @CrossOrigin(origins = "https://lo-icg.github.io/user-tracker-frontend/") // Allow only this frontend
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody User user) {
         String response = userService.signupAttempt(user);
